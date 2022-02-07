@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">FindTheCar</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="description_iV_Car_Item_Car">Imagen del vehiculo al pulsar te lleva a su ficha tecnica</string>
+    <string name="description_iV_Date_Item_Car">Imagen que muestra un icono de un calendario</string>
+    <string name="description_iV_Kilometers_Item_Car">Imagen que muestra un icono de un carretera</string>
+    <string name="description_iV_Horsepower_Item_Car">Imagen que muestra un icono de un coche para representar los caballos</string>
+    <string name="description_iV_Fuel_Item_Car">Imagen que muestra un icono de una estación de compostaje</string>
+    <string name="description_iV_GearLever_Item_Car">Imagen que muestra un icono de una palanca de cambios</string>
+    <string name="description_iV_Star_Favourites_Item_Car">Imagen que muestra un icono de una estrella</string>
+    <string name="tv_Title">Nombre modelo del vehiculo</string>
+    <string name="tv_Price">Precio</string>
+    <string name="tv_Date">Fecha</string>
+    <string name="tv_Kilometers">Kilometros</string>
+    <string name="tv_Horsepower">Caballos</string>
+    <string name="tv_Fuel">Combustible</string>
+    <string name="tv_GearLever">Marchas</string>
+    <string name="tv_Favourites">Favoritos</string>
+    <string name="tv_REF">REF</string>
+
+    <!-- Menu -->
+    <string name="description_iV_logo_Menu">Imagen del logo de la app</string>
+    <string name="description_fBt_Back_Menu">Boton que sale del navigation activity</string>
+    <string name="item_Buscar_Menu">BUSCAR</string>
+    <string name="item_Favoritos_Menu">FAVORITOS</string>
+    <string name="item_Notificaciones_Menu">NOTIFICACIONES</string>
+    <string name="item_Guardadas_Menu">GUARDADAS</string>
+    <string name="item_MiCuenta_Menu">MI CUENTA</string>
+    <string name="item_MisCompras_Menu">MIS COMPRAS</string>
+    <string name="item_Ajustes_Menu">AJUSTES</string>
+
+    <!-- SecondFragment -->
+    <string name="bt_Anterior">Anterior</string>
+    <string name="bt_Siguiente">Siguiente</string>
+    <string name="description_Scroll_SecondFragment">Scroll que contiene las caracteristicas que forman la ficha tecnica del coche</string>
+    <string name="tv_Date_Second">AÑO DE FABRICACIÓN</string>
+    <string name="tv_Kilometers_Second">KILÓMETROS</string>
+    <string name="tv_Horsepower_Second">CABALLOS</string>
+    <string name="tv_Fuel_Second">COMBUSTIBLE</string>
+    <string name="tv_GearLever_Second">CAMBIO</string>
+    <string name="tv_Price_Second">Precio actual</string>
+    <string name="tv_Price_Amount">Euros</string>
+    <string name="tv_Doors_Second">Nº PUERTAS</string>
+    <string name="tv_Warranty_Second">GARANTÍA</string>
+    <string name="tv_Color_Second">COLOR</string>
+
+    <string name="tv_Date_Value_Second">1990</string>
+    <string name="tv_Kilometers_Value_Second">100000km</string>
+    <string name="tv_Horsepower_Value_Second">190cv</string>
+    <string name="tv_Fuel_Value_Second">Gasolina</string>
+    <string name="tv_GearLever_Value_Second">Marchas</string>
+    <string name="tv_Doors_Value_Second">4 puertas</string>
+    <string name="tv_Warranty_Value_Second">24 meses</string>
+    <string name="tv_Color_Value_Second">Negro</string>
+    <string name="tv_Description_Second">Descripción</string>
+    <string name="tv_Description_Value_Second">Lodffasdfsadertgvferdfadgrafdfcvaerafgdagaerafdsgareadfgasdtegdsfafdareagdfagerafdf</string>
+</resources>

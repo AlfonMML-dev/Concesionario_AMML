@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="@color/cardViewColor"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_HiV_Car_Item_Car_List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_ViV_Car_Item_Car_List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.45" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_VMiddle_Item_Car_List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.55" />
+
+            <TextView
+                android:id="@+id/tv_Title"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/tv_Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_Price"
+                style="@style/tV_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/tv_Price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Title" />
+
+            <ImageView
+                android:id="@+id/iV_Car_Item_Car"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/description_iV_Car_Item_Car"
+                app:layout_constraintBottom_toTopOf="@+id/guideline_HiV_Car_Item_Car_List"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_ViV_Car_Item_Car_List"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Price"
+                app:layout_constraintVertical_bias="0.0"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/iV_Star_Favourites_Item_Car"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@string/description_iV_Star_Favourites_Item_Car"
+
+                app:layout_constraintBottom_toBottomOf="@+id/tv_Favourites"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/star_svg" />
+
+            <TextView
+                android:id="@+id/tv_Favourites"
+                style="@style/tV_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/tv_Favourites"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tv_GearLever"
+                app:layout_constraintStart_toEndOf="@+id/iV_Star_Favourites_Item_Car" />
+
+            <ImageView
+                android:id="@+id/iV_Date_Item_Car"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="@string/description_iV_Date_Item_Car"
+                app:layout_constraintStart_toEndOf="@+id/guideline_VMiddle_Item_Car_List"
+                app:layout_constraintTop_toTopOf="@+id/iV_Car_Item_Car"
+                app:srcCompat="@drawable/calendar_svg" />
+
+            <ImageView
+                android:id="@+id/iV_Kilometers_Item_Car"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/description_iV_Kilometers_Item_Car"
+                app:layout_constraintStart_toEndOf="@+id/guideline_VMiddle_Item_Car_List"
+                app:layout_constraintTop_toBottomOf="@+id/iV_Date_Item_Car"
+                app:srcCompat="@drawable/highway" />
+
+            <ImageView
+                android:id="@+id/iV_Horsepower_Item_Car"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/description_iV_Horsepower_Item_Car"
+                app:layout_constraintStart_toEndOf="@+id/guideline_VMiddle_Item_Car_List"
+                app:layout_constraintTop_toBottomOf="@+id/iV_Kilometers_Item_Car"
+                app:srcCompat="@drawable/horsepower" />
+
+            <ImageView
+                android:id="@+id/iV_Fuel_Item_Car"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/description_iV_Fuel_Item_Car"
+                app:layout_constraintStart_toEndOf="@+id/guideline_VMiddle_Item_Car_List"
+                app:layout_constraintTop_toBottomOf="@+id/iV_Horsepower_Item_Car"
+                app:srcCompat="@drawable/gas_station_svg" />
+
+            <ImageView
+                android:id="@+id/iV_GearLever_Item_Car"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/description_iV_GearLever_Item_Car"
+                app:layout_constraintStart_toEndOf="@+id/guideline_VMiddle_Item_Car_List"
+                app:layout_constraintTop_toBottomOf="@+id/iV_Fuel_Item_Car"
+                app:srcCompat="@drawable/gear_lever_svg" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_VMiddle_Item_Car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="iV_Date_Item_Car,iV_Kilometers_Item_Car,iV_Horsepower_Item_Car,iV_Fuel_Item_Car,iV_GearLever_Item_Car" />
+
+            <TextView
+                android:id="@+id/tv_Date"
+                style="@style/tV_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_Date"
+                app:layout_constraintStart_toEndOf="@+id/barrier_VMiddle_Item_Car"
+                app:layout_constraintTop_toTopOf="@+id/iV_Date_Item_Car" />
+
+            <TextView
+                android:id="@+id/tv_Kilometers"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/tv_Kilometers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/barrier_VMiddle_Item_Car"
+                app:layout_constraintTop_toTopOf="@+id/iV_Kilometers_Item_Car" />
+
+            <TextView
+                android:id="@+id/tv_Horsepower"
+                style="@style/tV_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_Horsepower"
+                app:layout_constraintStart_toEndOf="@+id/barrier_VMiddle_Item_Car"
+                app:layout_constraintTop_toTopOf="@+id/iV_Horsepower_Item_Car" />
+
+            <TextView
+                android:id="@+id/tv_Fuel"
+                style="@style/tV_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_Fuel"
+                app:layout_constraintStart_toEndOf="@+id/barrier_VMiddle_Item_Car"
+                app:layout_constraintTop_toTopOf="@+id/iV_Fuel_Item_Car" />
+
+            <TextView
+                android:id="@+id/tv_GearLever"
+                style="@style/tV_Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/tv_GearLever"
+                app:layout_constraintStart_toEndOf="@+id/barrier_VMiddle_Item_Car"
+                app:layout_constraintTop_toTopOf="@+id/iV_GearLever_Item_Car" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_REF"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_REF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iV_Star_Favourites_Item_Car" />
+
+            <TextView
+                android:id="@+id/tv_REF"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="@string/tv_REF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_REF" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

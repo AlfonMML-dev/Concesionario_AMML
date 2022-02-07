@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="cornerRadiusSize">8dp</dimen>
+    <dimen name="padding_bt">4dp</dimen>
+    <dimen name="txSize_bt_Style">14sp</dimen>
+    <dimen name="txSize_tV_Style">16sp</dimen>
+    <dimen name="txSize_tV_Title_Style">20sp</dimen>
+    <dimen name="txSize_tV_NOESPECIFICADO">14sp</dimen>
+</resources>

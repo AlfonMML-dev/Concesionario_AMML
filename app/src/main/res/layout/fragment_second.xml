@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SecondFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_VStart_Main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_VEnd_Main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_HTop_Main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_HBottomScroll_Second"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_HBottom_Main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1" />
+
+    <ScrollView
+        android:id="@+id/Scroll_SecondFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/description_Scroll_SecondFragment"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_HBottomScroll_Second"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_VEnd_Main"
+        app:layout_constraintStart_toEndOf="@+id/guideline_VStart_Main"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_HTop_Main">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardViewColor">
+
+
+            <TextView
+                android:id="@+id/tv_Title_Second"
+                style="@style/tV_Title_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:text="@string/tv_Title"
+                app:layout_constraintBottom_toTopOf="@+id/image_slider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+<!--            <androidx.constraintlayout.widget.Guideline-->
+<!--                android:id="@+id/guideline_HBottom_Slider"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layout_constraintGuide_percent="0.61" />-->
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/image_slider"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_Title_Second"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="right"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="15dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="2"
+                app:sliderStartAutoCycle="true" >
+
+            </com.smarteist.autoimageslider.SliderView>
+
+            <TextView
+                android:id="@+id/tv_Price_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Price_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_REF_Second"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Price_Amount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_slider" />
+
+            <TextView
+                android:id="@+id/tv_Price_Amount"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="20dp"
+                android:text="@string/tv_Price_Amount"
+                android:textAlignment="textEnd"
+                app:layout_constraintBottom_toTopOf="@+id/tv_REF_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_Price_Second"
+                app:layout_constraintTop_toBottomOf="@+id/image_slider" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_REF_Second"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_REF_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Price_Second" />
+
+            <TextView
+                android:id="@+id/tv_REF_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_REF"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_REF_Second" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_Details_0"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Date_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_REF_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalStart_0"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Date_Second"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_0" />
+
+            <TextView
+                android:id="@+id/tv_Date_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Date_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Date_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_0"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalStart_0"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_0" />
+
+            <TextView
+                android:id="@+id/tv_Date_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Date_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_0"
+                app:layout_constraintStart_toStartOf="@+id/tv_Date_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Date_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalMiddle_0"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Kilometers_Second"
+                app:layout_constraintStart_toEndOf="@+id/tv_Date_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_0" />
+
+            <TextView
+                android:id="@+id/tv_Kilometers_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Kilometers_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Kilometers_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_0"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalMiddle_0"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_0" />
+
+            <TextView
+                android:id="@+id/tv_Kilometers_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Kilometers_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_0"
+                app:layout_constraintStart_toStartOf="@+id/tv_Kilometers_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Kilometers_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalEnd_0"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_Kilometers_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_0" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_Details_1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Horsepower_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Date_Value_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalStart_1"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Horsepower_Second"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_1" />
+
+            <TextView
+                android:id="@+id/tv_Horsepower_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Horsepower_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Horsepower_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_1"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalStart_1"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_1" />
+
+            <TextView
+                android:id="@+id/tv_Horsepower_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Horsepower_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_1"
+                app:layout_constraintStart_toStartOf="@+id/tv_Horsepower_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Horsepower_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalMiddle_1"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Fuel_Second"
+                app:layout_constraintStart_toEndOf="@+id/tv_Horsepower_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_1" />
+
+            <TextView
+                android:id="@+id/tv_Fuel_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Fuel_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Fuel_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_1"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalMiddle_1"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_1" />
+
+            <TextView
+                android:id="@+id/tv_Fuel_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Fuel_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_1"
+                app:layout_constraintStart_toStartOf="@+id/tv_Fuel_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Fuel_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalEnd_1"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_Fuel_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_1" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_Details_2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_GearLever_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Horsepower_Value_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalStart_2"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
+                app:layout_constraintEnd_toStartOf="@+id/tv_GearLever_Second"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_2" />
+
+            <TextView
+                android:id="@+id/tv_GearLever_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_GearLever_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_GearLever_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_2"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalStart_2"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_2" />
+
+            <TextView
+                android:id="@+id/tv_GearLever_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_GearLever_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_2"
+                app:layout_constraintStart_toStartOf="@+id/tv_GearLever_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_GearLever_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalMiddle_2"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Doors_Second"
+                app:layout_constraintStart_toEndOf="@+id/tv_GearLever_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_2" />
+
+            <TextView
+                android:id="@+id/tv_Doors_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Doors_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Doors_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_2"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalMiddle_2"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_2" />
+
+            <TextView
+                android:id="@+id/tv_Doors_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Doors_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_2"
+                app:layout_constraintStart_toStartOf="@+id/tv_Doors_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Doors_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalEnd_2"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_Doors_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_2" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_Details_3"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Warranty_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_GearLever_Value_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalStart_3"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Warranty_Second"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_3" />
+
+            <TextView
+                android:id="@+id/tv_Warranty_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Warranty_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Warranty_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_3"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalStart_3"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_3" />
+
+            <TextView
+                android:id="@+id/tv_Warranty_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Warranty_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalMiddle_3"
+                app:layout_constraintStart_toStartOf="@+id/tv_Warranty_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Warranty_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalMiddle_3"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
+                app:layout_constraintEnd_toStartOf="@+id/tv_Color_Second"
+                app:layout_constraintStart_toEndOf="@+id/tv_Warranty_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_3" />
+
+            <TextView
+                android:id="@+id/tv_Color_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Color_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Color_Value_Second"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_3"
+                app:layout_constraintStart_toEndOf="@+id/view_LineVerticalMiddle_3"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_3" />
+
+            <TextView
+                android:id="@+id/tv_Color_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Color_Value_Second"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
+                app:layout_constraintEnd_toStartOf="@+id/view_LineVerticalEnd_3"
+                app:layout_constraintStart_toStartOf="@+id/tv_Color_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Color_Second" />
+
+            <View
+                android:id="@+id/view_LineVerticalEnd_3"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_Color_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_3" />
+
+            <View
+                android:id="@+id/view_LineHorizontal_Details_4"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Description_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Warranty_Value_Second" />
+
+            <TextView
+                android:id="@+id/tv_Description_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/tv_Description_Second"
+                app:layout_constraintBottom_toTopOf="@+id/tv_Description_Value_Second"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_Warranty_Value_Second"
+                app:layout_constraintTop_toBottomOf="@+id/view_LineHorizontal_Details_4" />
+
+            <TextView
+                android:id="@+id/tv_Description_Value_Second"
+                style="@style/tV_Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:paddingEnd="20dp"
+                android:text="@string/tv_Description_Value_Second"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_Description_Second"
+                app:layout_constraintTop_toBottomOf="@+id/tv_Description_Second" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_Anterior"
+        style="@style/bt_SecondFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/bt_Anterior_Color"
+        android:text="@string/bt_Anterior"
+        app:icon="@drawable/ic_baseline_arrow_back_ios_24"
+        app:iconGravity="textStart"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_HBottom_Main"
+        app:layout_constraintEnd_toStartOf="@+id/bt_Siguiente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_HBottomScroll_Second" />
+
+    <Button
+        android:id="@+id/bt_Siguiente"
+        style="@style/bt_SecondFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/bt_Siguiente_Color"
+        android:text="@string/bt_Siguiente"
+        app:icon="@drawable/ic_baseline_arrow_forward_ios_24"
+        app:iconGravity="textEnd"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_HBottom_Main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_Anterior"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_HBottomScroll_Second" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

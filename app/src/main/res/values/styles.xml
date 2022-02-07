@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    <style name="bt_TextButton_Style" parent="Widget.MaterialComponents.Button.TextButton">-->
+<!--        <item name="android:textColor">@color/textButton_Color</item>-->
+<!--        <item name="android:textSize">@dimen/txSize_bt_Style</item>-->
+<!--    </style>-->
+
+<!--    <style name="floatingButton_Style" parent="Widget.MaterialComponents.FloatingActionButton">-->
+<!--        <item name="backgroundTint"/>-->
+<!--    </style>-->
+
+    <style name="bt_SecondFragment" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint"/>
+        <item name="strokeColor">@color/white</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="tV_Title_Style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/textButton_Color</item>
+        <item name="android:textSize">@dimen/txSize_tV_Title_Style</item>
+    </style>
+
+    <style name="tV_Style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/textButton_Color</item>
+        <item name="android:textSize">@dimen/txSize_tV_Style</item>
+    </style>
+</resources>
