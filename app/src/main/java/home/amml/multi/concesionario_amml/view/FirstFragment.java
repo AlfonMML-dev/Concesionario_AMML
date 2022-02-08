@@ -35,8 +35,6 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
     private String sqlOrderBy = "";
     private String sqlASC_Or_DESC = "";
 
-    private boolean condicion_ASC_Or_DESC = false;
-
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -50,7 +48,7 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initialize(view);
+        initialize();
 //        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -73,7 +71,7 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
         carAdapter.setCarList(listCars);
     }
 
-    private void initialize(View view) {
+    private void createSpinners(){
         stringArrayAdapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_spinner_item, orderOptions);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_OrderOptions = binding.spinnerOrderOptions;
@@ -85,13 +83,20 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
         spinner_OrderOptions_ASC_Or_DESC = binding.spinnerOrderOptionsASCOrDESC;
         spinner_OrderOptions_ASC_Or_DESC.setAdapter(stringArrayAdapter1);
         spinner_OrderOptions_ASC_Or_DESC.setOnItemSelectedListener(this);
-        createRVCars(MainActivity.cars);
+    }
+
+    private void initialize() {
+        createSpinners();
+        if (MainActivity.cars.getCars().isEmpty()) {
+            MainActivity.cars.getCarsFromResultSet(null);
+        }
+        createRVCars(MainActivity.cars.getCars());
     }
 
     private void getListCar(String sql) {
-        ArrayList<Car> listCars = new Cars().getCars(sql);
-        MainActivity.cars = listCars;
-        createRVCars(MainActivity.cars);
+        MainActivity.cars.getCarsFromResultSet(sql);
+        createRVCars(MainActivity.cars.getCars());
+        MainActivity.cars.setSqlCars(sql);
     }
 
     private String createSQL(String item) {
@@ -107,11 +112,9 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
                 break;
             case "principio":
                 sqlASC_Or_DESC = " ASC LIMIT 1000";
-                condicion_ASC_Or_DESC = true;
                 break;
             case "final":
                 sqlASC_Or_DESC = " DESC LIMIT 1000";
-                condicion_ASC_Or_DESC = true;
                 break;
             default:
                 break;
@@ -126,7 +129,6 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
         String item = parent.getItemAtPosition(position).toString();
         String sqlFinalQuery = createSQL(item.toLowerCase());
         getListCar(sqlFinalQuery);
-
     }
 
     @Override

@@ -17,6 +17,8 @@ public class Car implements Parcelable {
     private String localization;
     private String url;
 
+    private String sql = "";
+
     public Car() {
     }
 
@@ -109,6 +111,7 @@ public class Car implements Parcelable {
         price = in.readInt();
         localization = in.readString();
         url = in.readString();
+        sql = in.readString();
     }
 
     public static final Creator<Car> CREATOR = new Creator<Car>() {
@@ -138,6 +141,7 @@ public class Car implements Parcelable {
         dest.writeInt(price);
         dest.writeString(localization);
         dest.writeString(url);
+        dest.writeString(sql);
     }
 
     public String getColor() {
@@ -178,5 +182,12 @@ public class Car implements Parcelable {
 
     public String getImagenPrincipal() {
         return images[0];
+    }
+
+    public String getSql(){
+        return sql;
+    }
+    public void setSql(String query){
+        sql = query;
     }
 }

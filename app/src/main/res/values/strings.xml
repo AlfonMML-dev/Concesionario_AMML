@@ -11,6 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!-- FirstFragment -->
+    <string name="description_spinner">Spinner que guarda un conjunto de opciones</string>
     <string name="hint_aCtV_OrderOptions">Order</string>
     <!-- ItemCar -->
     <string name="description_iV_Car_Item_Car">Imagen del vehiculo al pulsar te lleva a su ficha tecnica</string>
@@ -66,5 +67,5 @@
     <string name="tv_Color_Value_Second">Negro</string>
     <string name="tv_Description_Second">Descripción</string>
     <string name="tv_Description_Value_Second">Lodffasdfsadertgvferdfadgrafdfcvaerafgdagaerafdsgareadfgasdtegdsfafdareagdfagerafdf</string>
-    <string name="description_spinner">Spinner que guarda un conjunto de opciones</string>
+
 </resources>

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     //Aqui iran todos los coches guardados en la app tras la consulta a la BD
-    public static ArrayList<Car> cars = new ArrayList<>();
+    public static Cars cars = new Cars();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        //Obtenemos todos los coches de la base de datos
-//        cars = new Cars().getCars(null);
     }
 
     @Override

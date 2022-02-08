@@ -10,7 +10,11 @@ public class Cars {
 
     ArrayList<Car> cars = new ArrayList<>();
 
-    public ArrayList<Car> getCars(String sql) {
+    public ArrayList<Car> getCars(){
+        return cars;
+    }
+    public void getCarsFromResultSet(String sql) {
+        cars = new ArrayList<>();
         if(sql == null || sql.isEmpty()){
             sql = "SELECT * FROM coches";
         }
@@ -55,7 +59,6 @@ public class Cars {
 
         //Lo mostramos con Log.v para comprobar que lo hemos hecho bien
         //Log.v("xyzyz", "Array de cars completo: " + cars.toString());
-        return cars;
     }
 
     private String[] getCategoriesStringArray(String categories){
@@ -87,6 +90,12 @@ public class Cars {
         imagenesSeparadas = imagenes.split(";");
 
         return imagenesSeparadas;
+    }
+
+    public void setSqlCars(String query){
+        for (Car car: cars) {
+            car.setSql(query);
+        }
     }
 
 }

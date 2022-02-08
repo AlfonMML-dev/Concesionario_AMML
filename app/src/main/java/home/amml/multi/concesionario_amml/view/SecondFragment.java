@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -20,12 +22,17 @@ import home.amml.multi.concesionario_amml.databinding.FragmentSecondBinding;
 import home.amml.multi.concesionario_amml.model.Car;
 import home.amml.multi.concesionario_amml.view.adapter.SliderImageAdapter;
 
-public class SecondFragment extends Fragment {
+public class SecondFragment extends Fragment implements View.OnClickListener {
 
     private FragmentSecondBinding binding;
     private Car car;
+    //Hace referencia al coche obtenido al pulsar el componente Button bt_Anterior o bt_Siguiente
+    private Car otherCar;
 
+    private Button bt_Anterior, bt_Siguiente;
     SliderView sliderView;
+
+    private boolean first_Time = true;
 
     @Override
     public View onCreateView(
@@ -49,16 +56,28 @@ public class SecondFragment extends Fragment {
 //            }
 //        });
 
-        initialize();
-    }
-
-    private void initialize() {
         Bundle bundle = new Bundle();
         bundle = getArguments();
         car = bundle.getParcelable("car");
+        initialize(car);
+    }
+
+    private void initialize(Car car) {
+
+        cargarComponentes(car);
+        cargarSlider(car);
+
+        bt_Anterior = binding.btAnterior;
+        bt_Siguiente = binding.btSiguiente;
+
+        bt_Anterior.setOnClickListener(this);
+        bt_Siguiente.setOnClickListener(this);
+    }
+
+    private void cargarComponentes(Car car) {
         binding.tvTitleSecond.setText(car.getTitle());
         binding.tvPriceAmount.setText(car.getPrice() + "€");
-        binding.tvREFSecond.setText(binding.tvREFSecond.getText() + " " +car.getRef());
+        binding.tvREFSecond.setText(binding.tvREFSecond.getText() + " " + car.getRef());
         binding.tvDateValueSecond.setText(car.getDate());
         binding.tvKilometersValueSecond.setText(car.getKilometers() + "km");
         binding.tvHorsepowerValueSecond.setText(car.getHorsepower() + "cv");
@@ -68,11 +87,9 @@ public class SecondFragment extends Fragment {
         binding.tvWarrantyValueSecond.setText(car.getGearWarranty());
         binding.tvColorValueSecond.setText(car.getColor());
         binding.tvDescriptionValueSecond.setText(car.getDescription());
-
-        cargarSlider();
     }
 
-    private void cargarSlider(){
+    private void cargarSlider(Car car) {
         String[] images = car.getImages();
 
         //Hacemos el Slider
@@ -86,6 +103,54 @@ public class SecondFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Button btAux = (Button) v;
+
+        if (btAux.getId() == bt_Anterior.getId()) {
+            if(first_Time){
+                otherCar = obtenerCoche(car, true);
+                first_Time = false;
+            } else{
+                otherCar = obtenerCoche(otherCar, true);
+            }
+        } else {
+            if(first_Time){
+                otherCar = obtenerCoche(car, false);
+                first_Time = false;
+            } else{
+                otherCar = obtenerCoche(otherCar, false);
+            }
+        }
+        initialize(otherCar);
+    }
+
+    //True anterior, False siguiente
+    public Car obtenerCoche(Car car, boolean anterior_o_Siguiente) {
+        Car carReturn = null;
+        ArrayList<Car> cars = MainActivity.cars.getCars();
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getRef().equals(car.getRef())) {
+                if (anterior_o_Siguiente){
+                    if(i == 0){
+                        Toast.makeText(this.getContext(), "Es el primer coche",  Toast.LENGTH_SHORT).show();
+                        carReturn = car;
+                    } else{
+                        carReturn = cars.get(i-1);
+                    }
+                } else{
+                    if(i == cars.size()-1){
+                        Toast.makeText(this.getContext(), "Es el último coche",  Toast.LENGTH_SHORT).show();
+                        carReturn = car;
+                    } else{
+                        carReturn = cars.get(i+1);
+                    }
+                }
+            }
+        }
+        return carReturn;
     }
 
 }
