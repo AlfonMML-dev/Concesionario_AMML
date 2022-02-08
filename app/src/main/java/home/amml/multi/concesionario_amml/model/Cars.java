@@ -10,8 +10,11 @@ public class Cars {
 
     ArrayList<Car> cars = new ArrayList<>();
 
-    public ArrayList<Car> getCars() {
-        ResultSet rs = DBConnection.getRS("SELECT * FROM coches");
+    public ArrayList<Car> getCars(String sql) {
+        if(sql == null || sql.isEmpty()){
+            sql = "SELECT * FROM coches";
+        }
+        ResultSet rs = DBConnection.getResultSet(sql);
         try{
             //Mientras haya siguiente
             while(rs.next()){

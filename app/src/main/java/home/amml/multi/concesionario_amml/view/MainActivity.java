@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 
         //Obtenemos todos los coches de la base de datos
-        cars = new Cars().getCars();
+//        cars = new Cars().getCars(null);
     }
 
     @Override

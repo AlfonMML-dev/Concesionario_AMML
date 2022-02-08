@@ -38,7 +38,7 @@ public class DBConnection {
         return cnn;
     }
 
-    public static ResultSet getRS(String sql) {
+    public static ResultSet getResultSet(String sql) {
         //Objeto que va a devolver el método
         ResultSet rs = null;
         //Hacemos la conexion
