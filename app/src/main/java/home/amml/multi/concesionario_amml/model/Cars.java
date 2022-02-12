@@ -19,46 +19,43 @@ public class Cars {
             sql = "SELECT * FROM coches";
         }
         ResultSet rs = DBConnection.getResultSet(sql);
-        try{
-            //Mientras haya siguiente
-            while(rs.next()){
-                //Creamos un objeto car
-                Car car = new Car();
+        if(rs != null){
+            try{
+                //Mientras haya siguiente
+                while(rs.next()){
+                    //Creamos un objeto car
+                    Car car = new Car();
 
-                //Se asignan todos los campos a su valor correspondiente del ResultSet
-                //Primer campo -> ref
-                car.setRef(rs.getString(1));
-                //Segundo campo -> title
-                car.setTitle(rs.getString(2));
-                //Tercer campo -> description
-                car.setDescription(rs.getString(3));
-                //Cuarto campo -> categories
-                car.setCategoriesValue(getCategoriesStringArray(rs.getString(4)));
-                //Quinto campo -> images
-                car.setImages(getImagesStringArray(rs.getString(5)));
-                //Sexto campo -> price
-                car.setPrice(rs.getInt(6));
-                //Séptimo campo -> localization
-                car.setLocalization(rs.getString(7));
-                //Octavo campo -> url
-                car.setUrl(rs.getString(8));
+                    //Se asignan todos los campos a su valor correspondiente del ResultSet
+                    //Primer campo -> ref
+                    car.setRef(rs.getString(1));
+                    //Segundo campo -> title
+                    car.setTitle(rs.getString(2));
+                    //Tercer campo -> description
+                    car.setDescription(rs.getString(3));
+                    //Cuarto campo -> categories
+                    car.setCategoriesValue(getCategoriesStringArray(rs.getString(4)));
+                    //Quinto campo -> images
+                    car.setImages(getImagesStringArray(rs.getString(5)));
+                    //Sexto campo -> price
+                    car.setPrice(rs.getInt(6));
+                    //Séptimo campo -> localization
+                    car.setLocalization(rs.getString(7));
+                    //Octavo campo -> url
+                    car.setUrl(rs.getString(8));
 
-                //Agregamos al array de car el car
-                cars.add(car);
+                    //Agregamos al array de car el car
+                    cars.add(car);
 
-                //Lo mostramos con Log.v para comprobar que lo hemos hecho bien
-                Log.v("XYZXYZ", car.toString());
-
-                //Limpiamos el objeto despues de añadirlo al array por si el siguiente tiene algun
-                //campo nulo salga nulo y no el valor del car anterior
-                car = null;
+                    //Lo mostramos con Log.v para comprobar que lo hemos hecho bien
+                    Log.v("XYZXYZ", car.toString());
+                }
+            } catch(SQLException throwables){
+                throwables.printStackTrace();
             }
-        } catch(SQLException throwables){
-            throwables.printStackTrace();
+        } else{
+            Log.v("RESULTSET NULL", "RESULTSET NULL");
         }
-
-        //Lo mostramos con Log.v para comprobar que lo hemos hecho bien
-        //Log.v("xyzyz", "Array de cars completo: " + cars.toString());
     }
 
     private String[] getCategoriesStringArray(String categories){
@@ -96,6 +93,10 @@ public class Cars {
         for (Car car: cars) {
             car.setSql(query);
         }
+    }
+
+    public String getSQLCars(){
+        return cars.get(0).getSql();
     }
 
 }

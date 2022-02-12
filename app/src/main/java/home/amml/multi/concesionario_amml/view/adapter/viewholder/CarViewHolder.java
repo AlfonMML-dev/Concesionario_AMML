@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import home.amml.multi.concesionario_amml.R;
 import home.amml.multi.concesionario_amml.model.Car;
 
+import home.amml.multi.concesionario_amml.view.FirstFragment;
+
 public class CarViewHolder extends RecyclerView.ViewHolder {
 
     public Car car;
@@ -32,6 +34,13 @@ public class CarViewHolder extends RecyclerView.ViewHolder {
         tv_REF = itemView.findViewById(R.id.tv_REF);
         iV_Car_Item_Car = itemView.findViewById(R.id.iV_Car_Item_Car);
 
+        /**
+         * Evito así invocar al método createRVCars() de la clase FirstFragment dos veces cada vez
+         * que vuelvo al FirstFragment desde el SecondFragment.
+         * Es decir evito lanzar dos consultas iguales a la base de datos cada vez que vuelvo al
+         * FirstFragment desde el SecondFragment.
+         */
+        FirstFragment.setLastSQL("");
 
         itemView.setOnClickListener(view -> {
             bundle = new Bundle();

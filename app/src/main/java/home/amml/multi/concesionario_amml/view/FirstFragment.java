@@ -34,6 +34,9 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
     private final String sqlBase = "SELECT * FROM coches";
     private String sqlOrderBy = "";
     private String sqlASC_Or_DESC = "";
+    private static String lastSQL = "";
+
+    private boolean firstTime = true;
 
     @Override
     public View onCreateView(
@@ -69,6 +72,7 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
         CarAdapter carAdapter = new CarAdapter(getContext());
         binding.recyclerViewCarListMain.setAdapter(carAdapter);
         carAdapter.setCarList(listCars);
+        Log.v("CREATERVCARS", "Rellenar recyclerview");
     }
 
     private void createSpinners(){
@@ -87,16 +91,12 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
 
     private void initialize() {
         createSpinners();
-        if (MainActivity.cars.getCars().isEmpty()) {
-            MainActivity.cars.getCarsFromResultSet(null);
-        }
-        createRVCars(MainActivity.cars.getCars());
     }
 
     private void getListCar(String sql) {
         MainActivity.cars.getCarsFromResultSet(sql);
-        createRVCars(MainActivity.cars.getCars());
         MainActivity.cars.setSqlCars(sql);
+        lastSQL = MainActivity.cars.getSQLCars();
     }
 
     private String createSQL(String item) {
@@ -119,6 +119,9 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
             default:
                 break;
         }
+        if(sqlASC_Or_DESC.isEmpty()){
+            sqlASC_Or_DESC = " ASC LIMIT 1000";
+        }
         String sqlFinalQuery = sqlBase + sqlOrderBy + sqlASC_Or_DESC;
         Log.v("CONSULTA", sqlFinalQuery);
         return sqlFinalQuery;
@@ -128,11 +131,22 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         String sqlFinalQuery = createSQL(item.toLowerCase());
-        getListCar(sqlFinalQuery);
+        if(!lastSQL.equals(sqlFinalQuery)){
+            getListCar(sqlFinalQuery);
+            createRVCars(MainActivity.cars.getCars());
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public static String getLastSQL(){
+        return lastSQL;
+    }
+
+    public static void setLastSQL(String sql){
+        lastSQL = sql;
     }
 }
