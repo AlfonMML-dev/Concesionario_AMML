@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="textButton_Color">#FF000000</color>
+    <color name="textDetail_Color">#0B64A8</color>
+    <color name="textDetail_Color2">#0675A2</color>
 
     <!-- Colores empleados para el tema del concesionario-->
     <color name="primaryColor">#6ABCE1</color>

@@ -62,10 +62,12 @@
                 style="@style/tV_Title_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:paddingStart="15dp"
                 android:paddingTop="5dp"
                 android:paddingEnd="10dp"
                 android:text="@string/tv_Title"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/image_slider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +84,7 @@
                 android:id="@+id/image_slider"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_Title_Second"
@@ -97,7 +100,7 @@
                 app:sliderIndicatorSelectedColor="#5A5A5A"
                 app:sliderIndicatorUnselectedColor="#FFF"
                 app:sliderScrollTimeInSec="2"
-                app:sliderStartAutoCycle="true" >
+                app:sliderStartAutoCycle="true">
 
             </com.smarteist.autoimageslider.SliderView>
 
@@ -163,8 +166,9 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="5dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="8dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/tv_Date_Second"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -179,6 +183,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Date_Second"
                 app:layout_constraintStart_toStartOf="parent"
@@ -186,7 +191,7 @@
 
             <TextView
                 android:id="@+id/tv_Date_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -219,6 +224,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Kilometers_Second"
                 app:layout_constraintStart_toEndOf="@+id/tv_Date_Second"
@@ -226,7 +232,7 @@
 
             <TextView
                 android:id="@+id/tv_Kilometers_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -259,6 +265,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_Kilometers_Second"
@@ -273,6 +280,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/tv_Horsepower_Second"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -287,6 +295,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Horsepower_Second"
                 app:layout_constraintStart_toStartOf="parent"
@@ -294,7 +303,7 @@
 
             <TextView
                 android:id="@+id/tv_Horsepower_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -327,6 +336,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Fuel_Second"
                 app:layout_constraintStart_toEndOf="@+id/tv_Horsepower_Second"
@@ -334,7 +344,7 @@
 
             <TextView
                 android:id="@+id/tv_Fuel_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -367,6 +377,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_Fuel_Second"
@@ -381,6 +392,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/tv_GearLever_Second"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -395,6 +407,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
                 app:layout_constraintEnd_toStartOf="@+id/tv_GearLever_Second"
                 app:layout_constraintStart_toStartOf="parent"
@@ -402,7 +415,7 @@
 
             <TextView
                 android:id="@+id/tv_GearLever_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -435,6 +448,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Doors_Second"
                 app:layout_constraintStart_toEndOf="@+id/tv_GearLever_Second"
@@ -442,7 +456,7 @@
 
             <TextView
                 android:id="@+id/tv_Doors_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -475,6 +489,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_Doors_Second"
@@ -489,6 +504,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/tv_Warranty_Second"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -503,6 +519,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Warranty_Second"
                 app:layout_constraintStart_toStartOf="parent"
@@ -510,7 +527,7 @@
 
             <TextView
                 android:id="@+id/tv_Warranty_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -543,6 +560,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
                 app:layout_constraintEnd_toStartOf="@+id/tv_Color_Second"
                 app:layout_constraintStart_toEndOf="@+id/tv_Warranty_Second"
@@ -550,7 +568,7 @@
 
             <TextView
                 android:id="@+id/tv_Color_Second"
-                style="@style/tV_Style"
+                style="@style/tV_Detail_Style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingStart="5dp"
@@ -583,6 +601,7 @@
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/black"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toTopOf="@+id/view_LineHorizontal_Details_4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/tv_Color_Second"

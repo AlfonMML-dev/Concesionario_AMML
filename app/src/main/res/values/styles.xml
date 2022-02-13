@@ -25,4 +25,10 @@
         <item name="android:textColor">@color/textButton_Color</item>
         <item name="android:textSize">@dimen/txSize_tV_Style</item>
     </style>
+
+    <style name="tV_Detail_Style" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/textDetail_Color</item>
+        <item name="android:textSize">@dimen/txSize_tV_Style</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

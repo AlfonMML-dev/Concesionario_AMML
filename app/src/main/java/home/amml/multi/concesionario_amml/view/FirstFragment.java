@@ -36,8 +36,6 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
     private String sqlASC_Or_DESC = "";
     private static String lastSQL = "";
 
-    private boolean firstTime = true;
-
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -72,7 +70,6 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
         CarAdapter carAdapter = new CarAdapter(getContext());
         binding.recyclerViewCarListMain.setAdapter(carAdapter);
         carAdapter.setCarList(listCars);
-        Log.v("CREATERVCARS", "Rellenar recyclerview");
     }
 
     private void createSpinners(){
@@ -95,6 +92,7 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
 
     private void getListCar(String sql) {
         MainActivity.cars.getCarsFromResultSet(sql);
+        Log.v("FFLANZAR SQL", "getListCar");
         MainActivity.cars.setSqlCars(sql);
         lastSQL = MainActivity.cars.getSQLCars();
     }
@@ -123,7 +121,7 @@ public class FirstFragment extends Fragment implements AdapterView.OnItemSelecte
             sqlASC_Or_DESC = " ASC LIMIT 1000";
         }
         String sqlFinalQuery = sqlBase + sqlOrderBy + sqlASC_Or_DESC;
-        Log.v("CONSULTA", sqlFinalQuery);
+        Log.v("FFCREAR SQL", sqlFinalQuery);
         return sqlFinalQuery;
     }
 

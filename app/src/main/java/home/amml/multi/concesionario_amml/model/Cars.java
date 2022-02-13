@@ -16,8 +16,9 @@ public class Cars {
     public void getCarsFromResultSet(String sql) {
         cars = new ArrayList<>();
         if(sql == null || sql.isEmpty()){
-            sql = "SELECT * FROM coches";
+            sql = "SELECT * FROM coches ORDER BY ref ASC LIMIT 1000";
         }
+        Log.v("Cars", "getCarsFromResultSet");
         ResultSet rs = DBConnection.getResultSet(sql);
         if(rs != null){
             try{
