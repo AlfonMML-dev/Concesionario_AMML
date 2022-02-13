@@ -13,12 +13,8 @@ $categories = "";
 $images = "";
 $price = 0;
 $localization = "";
+$store_data = "";
 $url = "";
-
-//Creación de los arrays necesarios para comprobar las categorías que tiene el vehículo
-$colores = array("negro", "blanco", "gris", "azul", "rojo", "plata", "verde", "gris / plata", "rojo (pam)");
-$cambios = array("manual", "automático");
-$combustibles = array("diesel", "eléctrico", "híbrido", "glp", "otro", "gasolina");
 
 //Creación de las funciones que harán más comprensible y escalable el código
 
@@ -267,8 +263,8 @@ function remplazar_caracteres_noASCII($cadena)
     );
 
     $cadena = str_replace(
-        array('ñ', 'Ñ', 'ç', 'Ç'),
-        array('nn', 'NN', 'c', 'C'),
+        array('ñ', 'Ñ', 'ç', 'Ç', '¡'),
+        array('nn', 'NN', 'c', 'C', '!!'),
         $cadena
     );
 
@@ -280,7 +276,7 @@ function insertCar($url, $dbc)
 
     $archivo = getHtml($url);
 
-    $colores = array("negro", "blanco", "gris", "azul", "rojo", "plata", "verde", "gris / plata", "rojo (pam)");
+    $colores = array("negro", "blanco", "gris", "azul", "azul (marron)", "rojo", "plata", "verde", "gris / plata", "rojo (pam)");
     $cambios = array("manual", "automático");
     $combustibles = array("diesel", "eléctrico", "híbrido", "glp", "otro", "gasolina");
 
@@ -302,6 +298,7 @@ function insertCar($url, $dbc)
     $end_data = '" data-reactroot=""/><link data-rh="" rel="canonical" hre';
     $description = getStringBetween($archivo, $start_data, $end_data);
     echo "<br />Descripcion: " . $description . "        ";
+    echo "<br />";
 
     //Sacamos todas las etiquetas que este entre estos campos
     $start_data = '<ul class="ma-AdTagList">';
@@ -342,48 +339,76 @@ function insertCar($url, $dbc)
 
     echo "<br /><br /><br /><strong>Insertamos el coche</strong>";
     //Lo insertamos en la base de datos
+    
     $sql = "INSERT INTO coches VALUES ('" . $ref . "', '" . $title . "', '" . $description . "', '" . $categories . "', '"
         . $images . "', '" . $price . "', '" . $localization . "', '" . $url . "')";
 
-    $dbc->runQuery($sql);    
+    $dbc->runQuery($sql);
+    
 }
-$urls = array(
-    "https://www.milanuncios.com/otros-coches-de-segunda-mano/corvette-corvette-349761850.htm",
-    "https://www.milanuncios.com/ford-de-segunda-mano/ford-smax-2-0-tdci-panther-110kw-titanium-432969032.htm",
-    "https://www.milanuncios.com/ford-de-segunda-mano/ford-focus-1-0-ecoboost-mhev-92kw-active-433405108.htm",
-    "https://www.milanuncios.com/seat-de-segunda-mano/seat-leon-2-0-tdi-170cv-fr-433516147.htm",
-    "https://www.milanuncios.com/ford-de-segunda-mano/ford-kuga-stline-x-2-5-duratec-phev-165kw-auto-433542820.htm",
-    "https://www.milanuncios.com/seat-de-segunda-mano/seat-leon-2-0-tdi-170cv-fr-433576809.htm",
-    "https://www.milanuncios.com/mercedes-benz-de-segunda-mano/mercedes-benz-gls-434678730.htm",
-    "https://www.milanuncios.com/bmw-de-segunda-mano/bmw-x3-xdrive20d-434998035.htm",
-    "https://www.milanuncios.com/otros-coches-de-segunda-mano/corvette-corvette-435584837.htm",
-    "https://www.milanuncios.com/ford-de-segunda-mano/ford-focus-1-5-ecoboost-110kw-stline-436954409.htm",
-    "https://www.milanuncios.com/audi-de-segunda-mano/audi-q5-2-0-tdi-clean-140kw-quatt-s-tro-advanced-437178912.htm",
-    "https://www.milanuncios.com/alfa-romeo-de-segunda-mano/alfa-romeo-giulia-2-2-diesel-154kw-210cv-veloce-q4-437213908.htm",
-    "https://www.milanuncios.com/alfa-romeo-de-segunda-mano/alfa-romeo-stelvio-437228691.htm",
-    "https://www.milanuncios.com/ford-de-segunda-mano/ford-focus-1-6-trend-437324941.htm",
-    "https://www.milanuncios.com/bmw-de-segunda-mano/bmw-serie-3-320d-gran-turismo-437401077.htm",
-    "https://www.milanuncios.com/audi-de-segunda-mano/audi-a5-2-0-tdi-140kw-190cv-s-tronic-sportback-437538392.htm",
-    "https://www.milanuncios.com/volvo-de-segunda-mano/volvo-s60-437748629.htm",
-    "https://www.milanuncios.com/audi-de-segunda-mano/audi-a5-2-0-tdi-110kw-s-tronic-sportback-438188676.htm",
-    "https://www.milanuncios.com/bmw-de-segunda-mano/bmw-serie-5-520da-438439855.htm",
-    "https://www.milanuncios.com/bmw-de-segunda-mano/bmw-x5-xdrive30d-438775724.htm",
-    "https://www.milanuncios.com/toyota-de-segunda-mano/toyota-celica-438782454.htm",
-    "https://www.milanuncios.com/ford-de-segunda-mano/ford-mondeo-2-0-tdci-140-titanium-438871746.htm",
-    "https://www.milanuncios.com/audi-de-segunda-mano/audi-a1-adrenalin-1-0-tfsi-70kw-95cv-sportback-439101521.htm",
-    "https://www.milanuncios.com/audi-de-segunda-mano/audi-a1-30-tfsi-85kw-116cv-sportback-439101562.htm",
-    "https://www.milanuncios.com/abarth-de-segunda-mano/abarth-500-595-turismo-1-4-16v-tjet-121kw-e6-439102585.htm",
-    "https://www.milanuncios.com/bmw-de-segunda-mano/bmw-serie-4-420i-gran-coupe-439446977.htm",
-    "https://www.milanuncios.com/otros-coches-de-segunda-mano/corvette-corvette-6-2-v8-convertible-auto-439529389.htm",
-    "https://www.milanuncios.com/alfa-romeo-de-segunda-mano/alfa-romeo-stelvio-439562192.htm",
-    "https://www.milanuncios.com/alfa-romeo-de-segunda-mano/alfa-romeo-stelvio-439562265.htm",
-    "https://www.milanuncios.com/abarth-de-segunda-mano/abarth-500-1-4-tjet-695-biposto-140kw-190cv-439587647.htm",
-    "https://www.milanuncios.com/abarth-de-segunda-mano/abarth-500-1-4-16v-tjet-135cv-439602569.htm",
-    "https://www.milanuncios.com/abarth-de-segunda-mano/abarth-500-595-turismo-1-4-16v-tjet-160cv-e6-439604512.htm"
-);
 
-foreach($urls as $url){
-    insertCar($url, $dbc);
+function getStoreURLs($url){
+    $urls = array();
+    $archivo = getHtml($url);
+    if(!$archivo){
+        echo "Método getStoreURLs(".'$url'."). No se ha podido obtener el código HTML de la url";
+        exit(1);
+    }
+ 
+    $div_pag = "<div class=\"adlist-paginator-pagelink\"";
+    $num_pags = substr_count($archivo, $div_pag);
+     
+    //El número de páginas de coches máximo va a ser 5
+    if($num_pags > 5){
+        $num_pags = 5;
+    }     
+
+    for($i = 1; $i <= $num_pags; $i++){
+        echo "<br><h1>Página ".$i."</h1><br>";
+        $urlLink = $url."?pagina=".$i;
+        array_push($urls, $urlLink);
+    }
+    echo "<br />"."getStoreURLs"."<br />";
+    var_dump($urls);
+    return $urls;
+}
+
+function getCarsURLs($urls){
+    $cars_urls = array();
+    $archivo = "";
+    echo "<br />"."NUMERO PAGINAS".count($urls);
+    for($i = 0; $i < count($urls); $i++){
+        echo "<br />".$urls[$i];
+        $archivo = getHtml($urls[$i]);
+        if(!$archivo){
+            echo "<br />"."ERROR";
+            echo "Método getCarsURLs(".'$url'."). No se ha podido obtener el código HTML de la url";
+            exit(1);
+        }
+        $div_ini = "<div class=\"aditem ProfesionalCardTestABClass\">";
+        $num_adds = substr_count($archivo, $div_ini);
+        echo "<br />"."NUM_ADS".$num_adds;
+        for($j = 1; $j <= $num_adds; $j++){
+            $str_ini=strpos($archivo, $div_ini) + strlen($div_ini);
+            $archivo = substr($archivo, $str_ini);
+            
+            $start_car_url = "<a href=\"";
+            $end_car_url = "\" target=\"_blank\" class=\"aditem-detail-title\"";
+            echo "<br />".getStringBetween($archivo, $start_car_url, $end_car_url);
+            $car_url = "https://www.milanuncios.com".getStringBetween($archivo, $start_car_url, $end_car_url);
+            array_push($cars_urls, $car_url);
+        }
+        echo "<br />"."FIN PRIMER CICLO";
+    }
+    return $cars_urls;
+}
+
+
+$store_url = "https://www.milanuncios.com/tienda/autohero-57418.htm";
+
+$cars_urls = getCarsURLs(getStoreURLs($store_url));
+foreach($cars_urls as $car_url){
+    insertCar($car_url, $dbc);
 }
 
 ?>
