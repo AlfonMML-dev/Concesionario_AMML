@@ -34,6 +34,8 @@
     <!-- Menu -->
     <string name="description_iV_logo_Menu">Imagen del logo de la app</string>
     <string name="description_fBt_Back_Menu">Boton que sale del navigation activity</string>
+
+    <string name="item_QuienesSomos_Menu">QUIENES SOMOS</string>
     <string name="item_Buscar_Menu">BUSCAR</string>
     <string name="item_Favoritos_Menu">FAVORITOS</string>
     <string name="item_Notificaciones_Menu">NOTIFICACIONES</string>
