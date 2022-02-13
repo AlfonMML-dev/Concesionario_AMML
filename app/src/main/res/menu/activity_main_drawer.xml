@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="home.amml.multi.concesionario_amml.view.MainActivity"
+    tools:showIn="navigation_view">
+    <!--    <item-->
+    <!--        android:id="@+id/action_settings"-->
+    <!--        android:orderInCategory="100"-->
+    <!--        android:title="@string/action_settings"-->
+    <!--        app:showAsAction="never" />-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/item_quienesSomos"
+            android:icon="@drawable/car_svgrepo_com"
+            android:title="@string/item_QuienesSomos_Menu" />
+        <item
+            android:id="@+id/item_buscar_menu"
+            android:icon="@drawable/search_svg"
+            android:title="@string/item_Buscar_Menu" />
+        <item
+            android:id="@+id/item_favoritos_menu"
+            android:icon="@drawable/star_svgrepo_com"
+            android:title="@string/item_Favoritos_Menu" />
+        <item
+            android:id="@+id/item_notificaciones_menu"
+            android:icon="@drawable/notification_svg"
+            android:title="@string/item_Notificaciones_Menu" />
+        <item
+            android:id="@+id/item_guardadas_menu"
+            android:icon="@drawable/old_storage_unit_svgrepo_com"
+            android:title="@string/item_Guardadas_Menu" />
+        <item
+            android:id="@+id/item_micuenta_menu"
+            android:icon="@drawable/useraccount_svg"
+            android:title="@string/item_MiCuenta_Menu" />
+        <item
+            android:id="@+id/item_ajustes_menu"
+            android:icon="@drawable/settings_svg"
+            android:title="@string/item_Ajustes_Menu" />
+    </group>
+</menu>

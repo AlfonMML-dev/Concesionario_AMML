@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">FindTheCar</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Imagen del logo de la app</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">FindTheCar</string>
@@ -43,6 +48,8 @@
     <string name="item_MiCuenta_Menu">MI CUENTA</string>
     <string name="item_MisCompras_Menu">MIS COMPRAS</string>
     <string name="item_Ajustes_Menu">AJUSTES</string>
+
+    <string name="item_Compartir_Menu">COMPARTIR</string>
 
     <!-- SecondFragment -->
     <string name="bt_Anterior">Anterior</string>
