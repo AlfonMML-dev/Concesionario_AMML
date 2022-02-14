@@ -77,7 +77,8 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     private void cargarComponentes(Car car) {
         binding.tvTitleSecond.setText(car.getTitle());
         binding.tvPriceAmount.setText(car.getPrice() + "€");
-        binding.tvREFSecond.setText(binding.tvREFSecond.getText() + " " + car.getRef());
+        String refText = "REF";
+        binding.tvREFSecond.setText(refText + " " + car.getRef());
         binding.tvDateValueSecond.setText(car.getDate());
         binding.tvKilometersValueSecond.setText(car.getKilometers() + "km");
         binding.tvHorsepowerValueSecond.setText(car.getHorsepower() + "cv");
