@@ -5,6 +5,10 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/item_quienesSomos"
+            android:icon="@drawable/home_svgrepo_com"
+            android:title="@string/item_QuienesSomos_Menu" />
+        <item
             android:id="@+id/item_compartir_menu"
             android:icon="@drawable/share_svgrepo_com"
             android:title="@string/item_Compartir_Menu"

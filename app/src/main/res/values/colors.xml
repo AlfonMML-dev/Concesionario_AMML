@@ -31,5 +31,7 @@
     <color name="cardViewColor">#DEFFCDA1</color>
     <color name="bt_Anterior_Color">#C85118</color>
     <color name="bt_Siguiente_Color">#08739E</color>
+
+    <color name="side_nav_orange">#F1783D</color>
 <!--    <color name="bt_Anterior_Color">#B14511</color>-->
 </resources>

@@ -12,8 +12,13 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/item_quienesSomos"
-            android:icon="@drawable/car_svgrepo_com"
+            android:icon="@drawable/home_svgrepo_com"
             android:title="@string/item_QuienesSomos_Menu" />
+
+        <item
+            android:id="@+id/item_coches"
+            android:icon="@drawable/car_svgrepo_com"
+            android:title="@string/item_Coches_Menu" />
         <item
             android:id="@+id/item_buscar_menu"
             android:icon="@drawable/search_svg"

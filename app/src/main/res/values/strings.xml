@@ -50,6 +50,7 @@
     <string name="item_Ajustes_Menu">AJUSTES</string>
 
     <string name="item_Compartir_Menu">COMPARTIR</string>
+    <string name="item_Coches_Menu">COCHES</string>
 
     <!-- SecondFragment -->
     <string name="bt_Anterior">Anterior</string>
