@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.util.Arrays;
 
-public class Car implements Parcelable {
+public class Car implements Comparable<Car>, Parcelable {
     private String ref;
     private String title;
     private String description;
@@ -189,5 +189,10 @@ public class Car implements Parcelable {
     }
     public void setSql(String query){
         sql = query;
+    }
+
+    @Override
+    public int compareTo(Car o) {
+        return 0;
     }
 }

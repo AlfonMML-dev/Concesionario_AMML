@@ -5,6 +5,9 @@ import android.util.Log;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Cars {
 
@@ -13,10 +16,10 @@ public class Cars {
     public ArrayList<Car> getCars(){
         return cars;
     }
-    public void getCarsFromResultSet(String sql) {
+    public  ArrayList<Car> getCarsFromResultSet(String sql) {
         cars = new ArrayList<>();
         if(sql == null || sql.isEmpty()){
-            sql = "SELECT * FROM coches ORDER BY ref ASC LIMIT 1000";
+            sql = "SELECT * FROM coches";
         }
         Log.v("Cars", "getCarsFromResultSet");
         ResultSet rs = DBConnection.getResultSet(sql);
@@ -57,6 +60,7 @@ public class Cars {
         } else{
             Log.v("RESULTSET NULL", "RESULTSET NULL");
         }
+        return cars;
     }
 
     private String[] getCategoriesStringArray(String categories){
@@ -100,4 +104,58 @@ public class Cars {
         return cars.get(0).getSql();
     }
 
+    //True asc, False desc
+    public ArrayList<Car> orderByREF(ArrayList<Car> carsArgs, boolean asc_or_desc){
+        ArrayList<Car> carsResult = carsArgs;
+        if(asc_or_desc){
+            Collections.sort(carsResult, new REFCompare());
+        } else{
+            Collections.sort(carsResult, new REFCompare().reversed());
+        }
+        return carsResult;
+    }
+
+    public ArrayList<Car> orderByName(ArrayList<Car> carsArgs, boolean asc_or_desc){
+        ArrayList<Car> carsResult = carsArgs;
+        if(asc_or_desc){
+            Collections.sort(carsResult, new NameCompare());
+        } else{
+            Collections.sort(carsResult, new NameCompare().reversed());
+        }
+        return carsResult;
+    }
+
+    public ArrayList<Car> orderByPrice(ArrayList<Car> carsArgs, boolean asc_or_desc){
+        ArrayList<Car> carsResult = carsArgs;
+        if(asc_or_desc){
+            Collections.sort(carsResult, new PriceCompare());
+        } else{
+            Collections.sort(carsResult, new PriceCompare().reversed());
+        }
+        return carsResult;
+    }
+
+    class REFCompare implements Comparator<Car>{
+
+        @Override
+        public int compare(Car o1, Car o2) {
+            return o1.getRef().compareTo(o2.getRef());
+        }
+    }
+
+    class NameCompare implements Comparator<Car>{
+
+        @Override
+        public int compare(Car o1, Car o2) {
+            return o1.getTitle().compareTo(o2.getTitle());
+        }
+    }
+
+    class PriceCompare implements Comparator<Car>{
+
+        @Override
+        public int compare(Car o1, Car o2) {
+            return o1.getPrice() - o2.getPrice();
+        }
+    }
 }

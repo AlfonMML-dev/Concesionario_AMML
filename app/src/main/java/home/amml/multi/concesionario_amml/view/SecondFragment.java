@@ -48,14 +48,6 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(SecondFragment.this)
-//                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-//            }
-//        });
-
         Bundle bundle = new Bundle();
         bundle = getArguments();
         car = bundle.getParcelable("car");
@@ -131,7 +123,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     //True anterior, False siguiente
     public Car obtenerCoche(Car car, boolean anterior_o_Siguiente) {
         Car carReturn = null;
-        ArrayList<Car> cars = MainActivity.cars.getCars();
+        ArrayList<Car> cars = MainActivity.carArrayList;
         for (int i = 0; i < cars.size(); i++) {
             if (cars.get(i).getRef().equals(car.getRef())) {
                 if (anterior_o_Siguiente){

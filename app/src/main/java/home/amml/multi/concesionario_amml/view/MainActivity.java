@@ -19,10 +19,13 @@ import androidx.navigation.ui.NavigationUI;
 
 import home.amml.multi.concesionario_amml.R;
 import home.amml.multi.concesionario_amml.databinding.ActivityMainBinding;
+import home.amml.multi.concesionario_amml.model.Car;
 import home.amml.multi.concesionario_amml.model.Cars;
 
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     //Aqui iran todos los coches guardados en la app tras la consulta a la BD
-    public static Cars cars = new Cars();
+    public static ArrayList<Car> carArrayList = new Cars().getCarsFromResultSet("");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).setOpenableLayout(drawer).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        Log.v("MAIN", "ONCREATE");
     }
 
     @Override
